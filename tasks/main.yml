@@ -3,13 +3,13 @@
 - file: path=/usr/local/aws state=directory mode=0644
 - file: path=/usr/local/bin/aws state=directory mode=0644
 
-- name: aws cli | Download the node.js source
+- name: aws cli | Download the aws source
   get_url:
     url: "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
     dest: "/tmp/awscli-bundle.zip"
 
 - name: aws cli | Unpack the aws source
-  shell: unzip /tmp/awscli-bundle.zip
+  shell: unzip /tmp/awscli-bundle.zip -d /tmp
 
 - name: aws cli | Install aws cli
   shell: /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
